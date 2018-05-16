@@ -29,7 +29,21 @@
       function solve() {
         var powerOver = document.getElementById("powerOver").value;
         var rootNumber = document.getElementById("rootNumber").value;
-        for(i=0;)
+        var origin = document.getElementById("rootNumber").value;
+        for(i=0;i<powerOver;i++){
+          var iArray = rootNumber.toString().split();
+          var x = [];
+          var y = [];
+          for(k=0;k<iArray.length;k++) {
+            x.push((parseInt(iArray[k])*origin)%10);
+            y.push((parseInt(iArray[k])*origin)-(parseInt(iArray[k])*origin%10));
+          }
+          rootNumber = 0;
+          for(j=0;j<x.length;j++){
+            rootNumber += x[j] + y[j];
+          }
+        }
+        document.write('<strong>'+rootNumber+' to the power of '+powerOver+' is: </strong>'+rootNumber);
       }
     </script>
   </body>
